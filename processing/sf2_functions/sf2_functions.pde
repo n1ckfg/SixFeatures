@@ -1,4 +1,4 @@
-float x = 100;
+float x = 0;
 float y = 100;
 float s = 50;
 
@@ -9,5 +9,5 @@ void setup() {
 void draw() {
   background(127);
   ellipse(x, y, s, s);
-  x += 1;
+  x += 0.5;
 }
