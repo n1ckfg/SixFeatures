@@ -1,30 +1,30 @@
 class Dot {
 
-  float x = 100;
-  float y = 100;
+  PVector pos;
   float s = 50;
-  float speed = 5;
-  float spread = 10;
+  float speed;
+  PVector target;
   
-  color fillOrig = color(255);
-  color fillHit = color(0, 127, 255);
+  color fillOrig = color(0, 100, 255);
+  color fillHit = color(0, 200, 255);
   color fillNow = fillOrig;
 
   Dot(float _x, float _y) {
-    x = _x;
-    y = _y;
+    pos = new PVector(_x, _y);
     speed = random(1, 5);
+    target = new PVector(width, random(height));
   }
   
   void update() {    
-    x += speed;
+    pos.x = lerp(pos.x, target.x, 0.005 * speed);
+    pos.y = lerp(pos.y, target.y, 0.005 * speed);
     
-    if (x > width || x < 0) {
-      speed *= -1;
-      y += random(1, spread) - random(1, spread);
+    if (target.x > 0 && pos.x > width - (s/2) || target.x < 0 && pos.x < -(s/2)) {
+      target.x *= -1;
+      target.y = random(height);
     }
       
-    if (speed < 0) {
+    if (target.x < 0) {
       fillNow = fillHit;
     } else {
       fillNow = fillOrig;
@@ -33,7 +33,7 @@ class Dot {
   
   void draw() {
     fill(fillNow);
-    ellipse(x, y, s, s);    
+    ellipse(pos.x, pos.y, s, s);    
   }
   
   void run() {

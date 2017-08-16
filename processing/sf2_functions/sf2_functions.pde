@@ -11,3 +11,7 @@ void draw() {
   ellipse(x, y, s, s);
   x += 0.5;
 }
+
+void mousePressed() {
+  x = 0;
+}

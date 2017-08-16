@@ -16,6 +16,10 @@ var sketch_2 = function(p) {
 	  x += 0.5;
 	}
 
+	p.mousePressed = function() {
+		x = 0;
+	}
+
 }
 
 var p5_2 = new p5(sketch_2, "canvas2");

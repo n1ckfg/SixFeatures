@@ -2,14 +2,14 @@
 
 var sketch_6 = function(p) {
 
-	var numDots = 5;
+	var numDots = 10;
 	var dots = [];
 
 	p.setup = function() {
 		p.createCanvas(640, 360);
 
 		for (var i=0; i<numDots; i++) {
-    		dots[i] = new Dot(100, 100 + (i * 50));
+    		dots[i] = new Dot(100, 100);
   		}
 	}
 
@@ -26,26 +26,26 @@ var sketch_6 = function(p) {
 	class Dot {
 
 		constructor(_x, _y) {
-			this.x = _x;
-			this.y = _y;
+			this.pos = p.createVector(_x, _y);
 			this.s = 50;
 			this.speed = p.random(1, 5);
-			this.spread = 10;
+			this.target = p.createVector(p.width, p.random(p.height));
 
-			this.fillOrig = p.color(255);
-			this.fillHit = p.color(0, 127, 255);
+			this.fillOrig = p.color(0, 100, 255);
+			this.fillHit = p.color(0, 200, 255);
 			this.fillNow = this.fillOrig;
 		}
 
 		update() {    
-			this.x += this.speed;
+    		this.pos.x = p.lerp(this.pos.x, this.target.x, 0.005 * this.speed);
+    		this.pos.y = p.lerp(this.pos.y, this.target.y, 0.005 * this.speed);
 	
-			if (this.x > p.width || this.x < 0) {
-				this.speed *= -1;
-				this.y += p.random(1, this.spread) - p.random(1, this.spread);
-			}  
+		    if (this.target.x > 0 && this.pos.x > p.width - (this.s/2) || this.target.x < 0 && this.pos.x < -(this.s/2)) {
+		    	this.target.x *= -1;
+		    	this.target.y = p.random(p.height);
+		    }
 
-			if (this.speed < 0) {
+			if (this.target.x < 0) {
 				this.fillNow = this.fillHit;
 			} else {
 				this.fillNow = this.fillOrig;
@@ -54,7 +54,7 @@ var sketch_6 = function(p) {
 
 		draw() {
 			p.fill(this.fillNow);
-			p.ellipse(this.x, this.y, this.s, this.s);    
+			p.ellipse(this.pos.x, this.pos.y, this.s, this.s);    
 		}
 
 		run() {
