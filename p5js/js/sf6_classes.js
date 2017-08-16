@@ -40,7 +40,7 @@ var sketch_6 = function(p) {
     		this.pos.x = p.lerp(this.pos.x, this.target.x, 0.005 * this.speed);
     		this.pos.y = p.lerp(this.pos.y, this.target.y, 0.005 * this.speed);
 	
-		    if (this.target.x > 0 && this.pos.x > p.width - (this.s/2) || this.target.x < 0 && this.pos.x < -(this.s/2)) {
+		    if ((this.target.x > 0 && this.pos.x > p.width - (this.s/2)) || (this.target.x < 0 && this.pos.x < -(this.s/2))) {
 		    	this.target.x *= -1;
 		    	this.target.y = p.random(p.height);
 		    }

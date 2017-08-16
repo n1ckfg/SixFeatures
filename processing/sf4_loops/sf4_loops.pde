@@ -4,7 +4,7 @@ float s = 50;
 float speed = 5;
 
 void setup() {
-  size(640, 360);
+  size(640, 360, P2D);
 }
 
 void draw() {

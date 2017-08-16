@@ -3,7 +3,7 @@ float y = 100;
 float s = 50;
 
 void setup() {
-  size(200, 200);
+  size(200, 200, P2D);
 }
 
 void draw() {

@@ -1,4 +1,4 @@
-size(200, 200);
+size(200, 200, P2D);
 
 float x = 100;
 float y = 100;
