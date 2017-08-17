@@ -39,7 +39,7 @@ The six core features of almost any programming language, demonstrated in:
 
 5. openFrameworks
   5.1. Variables
-  X5.2. Functions
+  5.2. Functions
   X5.3. Conditionals
   X5.4. Loops
   X5.5. Arrays
