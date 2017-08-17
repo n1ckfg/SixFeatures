@@ -12,12 +12,16 @@ var sketch_2 = function(p) {
 
 	p.draw = function() {
 	  p.background(127);
-	  p.ellipse(x, y, s, s);
-	  x += 0.5;
+	  p.drawCircle();
 	}
 
 	p.mousePressed = function() {
 		x = 0;
+	}
+
+	p.drawCircle = function() {
+	  p.ellipse(x, y, s, s);
+	  x += 0.5;
 	}
 
 }

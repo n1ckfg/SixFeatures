@@ -8,10 +8,14 @@ void setup() {
 
 void draw() {
   background(127);
-  ellipse(x, y, s, s);
-  x += 0.5;
+  drawCircle();
 }
 
 void mousePressed() {
   x = 0;
+}
+
+void drawCircle() {
+  ellipse(x, y, s, s);
+  x += 0.5;  
 }

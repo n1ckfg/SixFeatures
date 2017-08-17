@@ -1,8 +1,8 @@
 #include "ofApp.h"
 
 void ofApp :: setup() {
-	x = 100;
-	y = 100;
+	posX = 100;
+	posY = 100;
 	s = 50;
 }
 
@@ -14,11 +14,11 @@ void ofApp :: draw() {
 	ofBackground(127);
 	ofFill();
 	ofSetColor(255);
-	ofEllipse(x, y, s, s);
+	ofEllipse(posX, posY, s, s);
 	ofNoFill();
 	ofSetColor(0);
 	ofSetLineWidth(1);
-	ofEllipse(x, y, s, s);
+	ofEllipse(posX, posY, s, s);
 }
 
 //--------------------------------------------------------------
