@@ -1,8 +1,8 @@
 #pragma once
-
 #include "ofMain.h"
+#include "Dot.h"
 
-class ofApp : public ofBaseApp{
+class ofApp : public ofBaseApp {
 
 	public:
 		void setup();
@@ -21,4 +21,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+		void drawCircle(float x, float y);
+
+		int numDots = 10;
+		vector<Dot> dots;
+
 };
