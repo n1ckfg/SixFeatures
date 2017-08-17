@@ -14,11 +14,11 @@ void ofApp :: draw() {
 	ofBackground(127);
 	ofFill();
 	ofSetColor(255);
-	ofEllipse(posX, posY, s, s);
+	ofDrawEllipse(posX, posY, s, s);
 	ofNoFill();
 	ofSetColor(0);
 	ofSetLineWidth(1);
-	ofEllipse(posX, posY, s, s);
+	ofDrawEllipse(posX, posY, s, s);
 }
 
 //--------------------------------------------------------------

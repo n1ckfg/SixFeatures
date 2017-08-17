@@ -27,11 +27,11 @@ void ofApp :: draw() {
 void ofApp :: drawCircle(float x, float y) {
 	ofFill();
 	ofSetColor(255);
-	ofEllipse(x, y, s, s);
+	ofDrawEllipse(x, y, s, s);
 	ofNoFill();
 	ofSetColor(0);
 	ofSetLineWidth(1);
-	ofEllipse(x, y, s, s);
+	ofDrawEllipse(x, y, s, s);
 }
 
 //--------------------------------------------------------------

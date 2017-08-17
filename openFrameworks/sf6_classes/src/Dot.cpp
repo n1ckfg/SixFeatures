@@ -29,11 +29,11 @@ void Dot :: update() {
 void Dot :: draw(float x, float y) {
 	ofFill();
 	ofSetColor(fillNow);
-	ofEllipse(x, y, s, s);
+	ofDrawEllipse(x, y, s, s);
 	ofNoFill();
 	ofSetColor(0);
 	ofSetLineWidth(1);
-	ofEllipse(x, y, s, s);
+	ofDrawEllipse(x, y, s, s);
 }
 
 void Dot :: run() {
