@@ -108,18 +108,18 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &122938949
+--- !u!1 &521911044
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 122938954}
-  - component: {fileID: 122938953}
-  - component: {fileID: 122938952}
-  - component: {fileID: 122938951}
-  - component: {fileID: 122938950}
+  - component: {fileID: 521911049}
+  - component: {fileID: 521911048}
+  - component: {fileID: 521911047}
+  - component: {fileID: 521911046}
+  - component: {fileID: 521911045}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -127,37 +127,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &122938950
+--- !u!81 &521911045
 AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122938949}
+  m_GameObject: {fileID: 521911044}
   m_Enabled: 1
---- !u!124 &122938951
+--- !u!124 &521911046
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122938949}
+  m_GameObject: {fileID: 521911044}
   m_Enabled: 1
---- !u!92 &122938952
+--- !u!92 &521911047
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122938949}
+  m_GameObject: {fileID: 521911044}
   m_Enabled: 1
---- !u!20 &122938953
+--- !u!20 &521911048
 Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122938949}
+  m_GameObject: {fileID: 521911044}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -184,14 +184,14 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!4 &122938954
+--- !u!4 &521911049
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122938949}
+  m_GameObject: {fileID: 521911044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -237,6 +237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84fcbd3d3a4dcf44af7d43c76458f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphere: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71, type: 2}
+  speedX: 0.2
+  color: {r: 1, g: 1, b: 1, a: 0}
+  numSpheres: 4
 --- !u!1 &1850974626
 GameObject:
   m_ObjectHideFlags: 0
