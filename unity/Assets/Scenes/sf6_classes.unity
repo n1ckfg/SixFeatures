@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useKeyboard: 1
-  useYAxis: 0
+  useYAxis: 1
   yAxisName: Vertical2
   walkSpeed: 10
   runSpeed: 100
@@ -364,6 +364,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphere: {fileID: 1881181920097566, guid: ee41da3a0d80f5747b1d0d570ae9c19a, type: 2}
-  speedX: 0.2
-  color: {r: 1, g: 1, b: 1, a: 0}
   numSpheres: 4

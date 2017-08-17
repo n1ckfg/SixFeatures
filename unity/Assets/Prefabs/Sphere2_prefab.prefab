@@ -93,13 +93,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1282cf68f90adf1449c0ba421c9fb037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
-  s: 50
-  speed: 0
+  speed: 2
   target: {x: 0, y: 0, z: 0}
   fillOrig: {r: 0.21280275, g: 0.40616715, b: 0.7058823, a: 1}
   fillHit: {r: 0.52205884, g: 0.8969146, b: 1, a: 1}
-  fillNow: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &135886235457576570
 SphereCollider:
   m_ObjectHideFlags: 1

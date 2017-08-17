@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 20961936}
   - component: {fileID: 20961935}
   - component: {fileID: 20961940}
+  - component: {fileID: 20961941}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -210,6 +211,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: bac73f97bd542554980892b2209e5a79, type: 2}
+--- !u!114 &20961941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20961934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd734da51bfb7842ac351e0a391ddb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useKeyboard: 1
+  useYAxis: 1
+  yAxisName: Vertical2
+  walkSpeed: 10
+  runSpeed: 100
+  accel: 0.01
+  homePoint: {fileID: 0}
+  useMouse: 1
+  showCursor: 0
+  useButton: 1
+  axes: 0
+  sensitivityX: 2
+  sensitivityY: 2
+  mousePos: {x: 0, y: 0, z: 0}
+  clicked: 0
+  isDrawing: 0
+  useRaycaster: 1
+  followMouse: 1
+  isLooking: 0
+  isLookingAt: 
+  lastHitPos: {x: 1, y: 1, z: 1}
+  useCollisions: 0
 --- !u!1 &1215585880
 GameObject:
   m_ObjectHideFlags: 0

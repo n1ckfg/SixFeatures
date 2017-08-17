@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Dot : MonoBehaviour {
 
-    public Vector3 pos;
-    public float s = 50f;
-    public float speed;
+    public float speed = 2f;
     public Vector3 target;
 
     public Color fillOrig = new Color(0, 100, 255);
     public Color fillHit = new Color(0, 200, 255);
-    public Color fillNow;
 
+    private Color fillNow;
     private Renderer ren;
+    private bool timeout = false;
+    private float timeoutDur = 0.05f;
 
     private void Awake() {
         ren = GetComponent<Renderer>();
@@ -21,31 +21,37 @@ public class Dot : MonoBehaviour {
 
     private void Start() {
         fillNow = fillOrig;
+        ren.material.SetColor("_Color", fillNow);
 
-        pos = new Vector3(0f, 0f, 0f);
-        speed = Random.Range(1f, 5f);
-        target = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Random.Range(0f, Screen.height), 0f));
+        speed = Random.Range(speed/2f, speed*2f);
+        target = new Vector3(Screen.width*2f, Random.Range(0f, Screen.height), 0f);
+        Debug.Log(target);
     }
-	
-	private void Update() {
-        pos = Vector3.Lerp(pos, target, 0.005f * speed);
 
-        transform.position = pos;
+    private void Update() {
+        Vector3 newPos = Camera.main.ScreenToWorldPoint(Vector3.Lerp(Camera.main.WorldToScreenPoint(transform.position), target, 0.005f * speed));
+        transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
 
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-
-        if ((target.x > 0f && pos.x > Screen.width - (s / 2f)) || (target.x < 0 && pos.x < -(s / 2f))) {
+        if (screenPos.x < 0f || screenPos.x > (float)Screen.width) {
             target.x *= -1f;
-            target.y = Random.Range(0f, Screen.height);
-        }
 
-        if (target.x < 0) {
-            fillNow = fillHit;
-        } else {
-            fillNow = fillOrig;
+            if (!timeout) {
+                if (target.x < 0f) {
+                    fillNow = fillHit;
+                } else {
+                    fillNow = fillOrig;
+                }
+                ren.material.SetColor("_Color", fillNow);
+                StartCoroutine(resetTimeout());
+            }
         }
+    }
 
-        ren.material.SetColor("_Color", fillNow);
+    private IEnumerator resetTimeout() {
+        timeout = true;
+        yield return new WaitForSeconds(timeoutDur);
+        timeout = false;
     }
 
 }
