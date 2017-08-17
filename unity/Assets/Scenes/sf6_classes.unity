@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 386218333}
   - component: {fileID: 386218332}
   - component: {fileID: 386218337}
+  - component: {fileID: 386218338}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -210,6 +211,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: bac73f97bd542554980892b2209e5a79, type: 2}
+--- !u!114 &386218338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 386218331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd734da51bfb7842ac351e0a391ddb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useKeyboard: 1
+  useYAxis: 0
+  yAxisName: Vertical2
+  walkSpeed: 10
+  runSpeed: 100
+  accel: 0.01
+  homePoint: {fileID: 0}
+  useMouse: 1
+  showCursor: 0
+  useButton: 1
+  axes: 0
+  sensitivityX: 2
+  sensitivityY: 2
+  mousePos: {x: 0, y: 0, z: 0}
+  clicked: 0
+  isDrawing: 0
+  useRaycaster: 1
+  followMouse: 1
+  isLooking: 0
+  isLookingAt: 
+  lastHitPos: {x: 1, y: 1, z: 1}
+  useCollisions: 0
 --- !u!1 &1850974626
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7629e14b4bfbc9f4795ce38886c40b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphere: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71, type: 2}
+  sphere: {fileID: 1881181920097566, guid: ee41da3a0d80f5747b1d0d570ae9c19a, type: 2}
   speedX: 0.2
   color: {r: 1, g: 1, b: 1, a: 0}
   numSpheres: 4
