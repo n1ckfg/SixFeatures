@@ -108,6 +108,62 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &358879548 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71,
+    type: 2}
+  m_PrefabInternal: {fileID: 1481763265}
+--- !u!1001 &472183949
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_Name
+      value: Sphere_prefab4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ea2778576374164449c362f016653e71, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &518101223 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71,
+    type: 2}
+  m_PrefabInternal: {fileID: 1609211011}
 --- !u!1 &521911044
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +253,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &571003833 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71,
+    type: 2}
+  m_PrefabInternal: {fileID: 1695449096}
+--- !u!1 &635080781 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71,
+    type: 2}
+  m_PrefabInternal: {fileID: 472183949}
 --- !u!1 &652119129
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,10 +303,151 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84fcbd3d3a4dcf44af7d43c76458f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphere: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71, type: 2}
+  spheres:
+  - {fileID: 571003833}
+  - {fileID: 358879548}
+  - {fileID: 518101223}
+  - {fileID: 635080781}
   speedX: 0.2
   color: {r: 1, g: 1, b: 1, a: 0}
-  numSpheres: 4
+--- !u!1001 &1481763265
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_Name
+      value: Sphere_prefab2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ea2778576374164449c362f016653e71, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1609211011
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_Name
+      value: Sphere_prefab3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ea2778576374164449c362f016653e71, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1695449096
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400196993235150, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881181920097566, guid: ea2778576374164449c362f016653e71, type: 2}
+      propertyPath: m_Name
+      value: Sphere_prefab1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ea2778576374164449c362f016653e71, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1850974626
 GameObject:
   m_ObjectHideFlags: 0

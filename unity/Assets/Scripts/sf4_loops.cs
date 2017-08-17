@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class sf4_loops : MonoBehaviour {
 
-    public GameObject sphere;
+    public GameObject[] spheres;
     public float speedX = 0.01f;
     public Color color;
-    public int numSpheres = 4;
 
     private Renderer ren;
-    private GameObject[] spheres;
 
     private void Awake() {
-        ren = sphere.GetComponent<Renderer>();
-    }
-
-    private void Start() {
-        spheres = new GameObject[numSpheres];
-        for (int i=0; i<numSpheres; i++) {
-            spheres[i] = Instantiate(sphere, new Vector3(0f, i * 1f, 0f), Quaternion.identity);
-        }
+        ren = spheres[0].GetComponent<Renderer>();
     }
 
     private void Update() {
