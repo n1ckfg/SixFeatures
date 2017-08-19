@@ -1,9 +1,9 @@
 The six core features of almost any programming language, demonstrated in:
-  Java (Processing)
-  Python (processing.py)
-  JavaScript (p5.js)
-  C# (Unity)
-  C++ (openFrameworks)
+Java (Processing)
+Python (processing.py)
+JavaScript (p5.js)
+C# (Unity)
+C++ (openFrameworks)
 
 Example 1. Variables
 Example 2. Functions
