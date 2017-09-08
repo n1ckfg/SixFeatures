@@ -13,6 +13,7 @@ var sketch_2 = function(p) {
 	p.draw = function() {
 	  p.background(127);
 	  p.drawCircle();
+	  p.text("(click)", 5, p.height-5);
 	}
 
 	p.mousePressed = function() {

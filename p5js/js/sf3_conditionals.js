@@ -8,7 +8,7 @@ var sketch_3 = function(p) {
 	var speed = 5;
 
 	p.setup = function() {
-		p.createCanvas(640, 360);
+		p.createCanvas(640, 200);
 	}
 
 	p.draw = function() {
