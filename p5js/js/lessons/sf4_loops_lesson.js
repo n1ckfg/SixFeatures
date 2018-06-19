@@ -1,3 +1,5 @@
+// 4. Loop: a rule that repeats some instructions until its conditions are met.
+
 var x = 100;
 var y = 100;
 var s = 50;

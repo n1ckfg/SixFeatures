@@ -1,3 +1,5 @@
+// 1. Variable: a place in memory that can store a piece of data.
+
 function setup() {
     createCanvas(200, 200);
 

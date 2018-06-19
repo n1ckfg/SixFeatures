@@ -1,3 +1,5 @@
+// 5. Array: a variable that can hold more than one piece of data.
+
 var x = [ 100, 100, 100, 100, 100 ];
 var y = 100;
 var s = 50;

@@ -1,3 +1,5 @@
+// 6. Class: a reusable object that can contain any of these six features.
+
 var numDots = 10;
 var dots = [];
 

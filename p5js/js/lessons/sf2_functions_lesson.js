@@ -1,3 +1,5 @@
+// 2. Function: a list of instructions.
+
 var x = 0;
 var y = 100;
 var s = 50;

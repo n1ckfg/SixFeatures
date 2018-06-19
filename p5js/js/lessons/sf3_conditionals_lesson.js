@@ -1,3 +1,5 @@
+// 3. Conditional: a rule that ignores some instructions unless its conditions are met.
+
 var x = 100;
 var y = 100;
 var s = 50;
