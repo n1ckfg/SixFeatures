@@ -1,18 +1,29 @@
 "use strict";
 
-var sketch_1 = function(p) {
+function p1() {
 
-	p.setup = function() {
-		p.createCanvas(200, 200);
+	let canvas = document.getElementById("canvas1");
+	canvas.width = 200;
+	canvas.height = 200;
+	let ctx = canvas.getContext("2d");
+	
+	let x = 100;
+	let y = 100;
+	let s = 25;
 
-		var x = 100;
-		var y = 100;
-		var s = 50;
+	ctx.beginPath();
+	ctx.fillStyle = "gray";
+	ctx.rect(0, 0, canvas.width, canvas.height);
+	ctx.fill();
 
-		p.background(127);
-		p.ellipse(x, y, s, s);	
-	}
-
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.fillStyle = "white";
+    ctx.strokeStyle = "black";
+    ctx.ellipse(x, y, s, s, 0, -Math.PI, Math.PI);
+    ctx.fill();
+    ctx.stroke();
+    
 }
 
-var p5_1 = new p5(sketch_1, "canvas1");
+p1();
