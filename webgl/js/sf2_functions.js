@@ -5,23 +5,18 @@ function p2() {
 	let canvas = document.getElementById("canvas2");
 	canvas.width = 200;
 	canvas.height = 200;
-	let ctx = canvas.getContext("2d");
+	let ctx = canvas.getContext("webgl");
 
 	let x = 0;
 	let y = 100;
-	let s = 25;
+	let s = 50;
+
+	let program1 = createDefaultProgram(ctx, 0, 0, 0, 1);
+	let program2 = createDefaultProgram(ctx, 1, 1, 1, 1);
 
 	setInterval(function() {
-		ctx.beginPath();
-		ctx.fillStyle = "gray";
-		ctx.rect(0, 0, canvas.width, canvas.height);
-		ctx.fill();
-
+		background(ctx, 0.5, 0.5, 0.5, 1);
 	    drawCircle();
-
-		ctx.beginPath();
-	    ctx.fillStyle = "black";
-	    ctx.fillText("(click)", 5, canvas.height-5);
 	}, 1/60*1000);
 
 	canvas.addEventListener("click", function() {
@@ -29,13 +24,11 @@ function p2() {
 	});
 
 	function drawCircle() {
-	    ctx.beginPath();
-	    ctx.lineWidth = 1;
-	    ctx.fillStyle = "white";
-	    ctx.strokeStyle = "black";
-	    ctx.ellipse(x, y, s, s, 0, -Math.PI, Math.PI);
-	    ctx.fill();
-	    ctx.stroke();
+		ctx.useProgram(program1);
+		glCircle(ctx, program1, x, y, s+2);
+
+		ctx.useProgram(program2);
+		glCircle(ctx, program2, x, y, s);
 
 	    x += 0.5;
 	}

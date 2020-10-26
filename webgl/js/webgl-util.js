@@ -82,8 +82,8 @@ function background(ctx, r, g, b, a) {
     ctx.clear(ctx.COLOR_BUFFER_BIT);
 }
 
-function drawCircle(ctx, program, x, y, s) {
-    let circle = { x: x, y: x, r: s/2 };
+function glCircle(ctx, program, x, y, s) {
+    let circle = { x: x, y: y, r: s/2 };
     let ATTRIBUTES = 2;
     let numFans = 32;
     let degreePerFan = (2 * Math.PI) / numFans;

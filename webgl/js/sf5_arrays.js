@@ -5,27 +5,25 @@ function p5() {
 	let canvas = document.getElementById("canvas5");
 	canvas.width = 640;
 	canvas.height = 360;
-	let ctx = canvas.getContext("2d");
+	let ctx = canvas.getContext("webgl");
 
 	let x = [ 100, 100, 100, 100, 100 ];
 	let y = 100;
-	let s = 25;
+	let s = 50;
 	let speed = [ 1, 2, 3, 4, 5 ];
 
+	let program1 = createDefaultProgram(ctx, 0, 0, 0, 1);
+	let program2 = createDefaultProgram(ctx, 1, 1, 1, 1);
+
 	setInterval(function() {
-		ctx.beginPath();
-		ctx.fillStyle = "gray";
-		ctx.rect(0, 0, canvas.width, canvas.height);
-		ctx.fill();
+		background(ctx, 0.5, 0.5, 0.5, 1);
 
 		for (let i=0; i<x.length; i++) {
-		    ctx.beginPath();
-		    ctx.lineWidth = 1;
-		    ctx.fillStyle = "white";
-		    ctx.strokeStyle = "black";
-			ctx.ellipse(x[i], y + (i * s * 2), s, s, 0, -Math.PI, Math.PI);
-		    ctx.fill();
-		    ctx.stroke();
+			ctx.useProgram(program1);
+			glCircle(ctx, program1, x[i], y + (i * s), s+2);
+
+			ctx.useProgram(program2);
+			glCircle(ctx, program2, x[i], y + (i * s), s);
 
 			x[i] += speed[i];
 
