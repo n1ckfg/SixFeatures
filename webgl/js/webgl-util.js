@@ -77,25 +77,12 @@ function createFragmentProgramFromSource(ctx, f) {
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-function background(ctx, r, g, b, a) {
+function glBackground(ctx, r, g, b, a) {
     ctx.clearColor(r, g, b, a);
     ctx.clear(ctx.COLOR_BUFFER_BIT);
 }
 
-function glCircle(ctx, program, x, y, s) {
-    let circle = { x: x, y: y, r: s/2 };
-    let ATTRIBUTES = 2;
-    let numFans = 32;
-    let degreePerFan = (2 * Math.PI) / numFans;
-    let vertexData = [circle.x, circle.y];
-    
-    for (let i = 0; i <= numFans; i++) {
-        let index = ATTRIBUTES * i + 2;  // there are already 2 items in the array
-        let angle = degreePerFan * (i+1);
-        vertexData[index] = circle.x + Math.cos(angle) * circle.r;
-        vertexData[index + 1] = circle.y + Math.sin(angle) * circle.r;
-    }
-
+function glPrepareVertexData(ctx, program, attributes, vertexData) {
     let vertexDataTyped = new Float32Array(vertexData);
 
     let buffer = ctx.createBuffer();
@@ -108,6 +95,27 @@ function glCircle(ctx, program, x, y, s) {
     let positionLocation = ctx.getAttribLocation(program, "a_position");
     ctx.enableVertexAttribArray(positionLocation);
 
-    ctx.vertexAttribPointer(positionLocation, 2, ctx.FLOAT, false, ATTRIBUTES * Float32Array.BYTES_PER_ELEMENT, 0);
-    ctx.drawArrays(ctx.TRIANGLE_FAN, 0, vertexData.length/ATTRIBUTES);  
+    ctx.vertexAttribPointer(positionLocation, 2, ctx.FLOAT, false, attributes * Float32Array.BYTES_PER_ELEMENT, 0);   
+}
+
+function glDrawTriangleFan(ctx, program, attributes, vertexData) {
+    glPrepareVertexData(ctx, program, attributes, vertexData);
+    ctx.drawArrays(ctx.TRIANGLE_FAN, 0, vertexData.length/attributes);  
+}
+
+function glCircle(ctx, program, x, y, s) {
+    let circle = { x: x, y: y, r: s/2 };
+    let attributes = 2;
+    let numFans = 32;
+    let degreePerFan = (2 * Math.PI) / numFans;
+    let vertexData = [circle.x, circle.y];
+    
+    for (let i = 0; i <= numFans; i++) {
+        let index = attributes * i + 2;  // there are already 2 items in the array
+        let angle = degreePerFan * (i+1);
+        vertexData[index] = circle.x + Math.cos(angle) * circle.r;
+        vertexData[index + 1] = circle.y + Math.sin(angle) * circle.r;
+    }
+
+    glDrawTriangleFan(ctx, program, attributes, vertexData);
 }

@@ -64,7 +64,7 @@ function p6() {
 	}
 	
 	setInterval(function() {
-		background(ctx, 0.5, 0.5, 0.5, 1);
+		glBackground(ctx, 0.5, 0.5, 0.5, 1);
 
 		for (let i=0; i<dots.length; i++) {
 			dots[i].run(ctx);

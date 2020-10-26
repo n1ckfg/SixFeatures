@@ -7,7 +7,7 @@ function p1() {
 	canvas.height = 200;
 	let ctx = canvas.getContext("webgl");
 
-	background(ctx, 0.5, 0.5, 0.5, 1);
+	glBackground(ctx, 0.5, 0.5, 0.5, 1);
 
 	let x = 100;
 	let y = 100;

@@ -15,7 +15,7 @@ function p2() {
 	let program2 = createDefaultProgram(ctx, 1, 1, 1, 1);
 
 	setInterval(function() {
-		background(ctx, 0.5, 0.5, 0.5, 1);
+		glBackground(ctx, 0.5, 0.5, 0.5, 1);
 	    drawCircle();
 	}, 1/60*1000);
 
