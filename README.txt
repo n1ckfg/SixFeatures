@@ -4,7 +4,7 @@ Nick Fox-Gieg   fox-gieg.com   170818
 The six core features of almost any programming language, demonstrated in:
 Java (Processing)
 Python (processing.py)
-JavaScript (p5.js, canvas, processing.js)
+JavaScript (p5.js, canvas, webgl, processing.js)
 C# (Unity)
 C++ (openFrameworks)
 
