@@ -1,5 +1,5 @@
 SIX FEATURES
-Nick Fox-Gieg   fox-gieg.com   170818
+Nick Fox-Gieg   fox-gieg.com   201026
 
 The six core features of almost any programming language, demonstrated in:
 Java (Processing)
