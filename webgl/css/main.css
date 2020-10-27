@@ -31,3 +31,12 @@ canvas {
 	margin: auto;
 }
 
+.clicker {
+	font-size: 0.8em;
+	position: relative;
+	left: 0.4em;
+	top: -1.8em;
+	margin-bottom: -1em;
+	width: 3em;
+	height: 1em;
+}
