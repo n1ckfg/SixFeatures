@@ -119,3 +119,17 @@ function glCircle(ctx, program, x, y, s) {
 
     glDrawTriangleFan(ctx, program, attributes, vertexData);
 }
+
+/*
+function resizeCanvasToDisplaySize(canvas, multiplier) {
+    multiplier = multiplier || 1;
+    const width  = canvas.clientWidth  * multiplier | 0;
+    const height = canvas.clientHeight * multiplier | 0;
+    if (canvas.width !== width ||  canvas.height !== height) {
+        canvas.width  = width;
+        canvas.height = height;
+        return true;
+    }
+    return false;
+}
+*/
