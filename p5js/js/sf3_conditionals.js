@@ -1,11 +1,11 @@
 "use strict";
 
-var sketch_3 = function(p) {
+let sketch_3 = function(p) {
 
-	var x = 100;
-	var y = 100;
-	var s = 50;
-	var speed = 5;
+	let x = 100;
+	let y = 100;
+	let s = 50;
+	let speed = 5;
 
 	p.setup = function() {
 		p.createCanvas(640, 200);
@@ -23,4 +23,4 @@ var sketch_3 = function(p) {
 
 }
 
-var p5_3 = new p5(sketch_3, "canvas3");
+let p5_3 = new p5(sketch_3, "canvas3");

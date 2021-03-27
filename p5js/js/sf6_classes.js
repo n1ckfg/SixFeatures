@@ -1,14 +1,14 @@
 "use strict";
 
-var sketch_6 = function(p) {
+let sketch_6 = function(p) {
 
-	var numDots = 10;
-	var dots = [];
+	let numDots = 10;
+	let dots = [];
 
 	p.setup = function() {
 		p.createCanvas(640, 360);
 
-		for (var i=0; i<numDots; i++) {
+		for (let i=0; i<numDots; i++) {
     		dots[i] = new Dot(100, 100);
   		}
 	}
@@ -16,7 +16,7 @@ var sketch_6 = function(p) {
 	p.draw = function() {
 		p.background(127);
 
-		for (var i=0; i<dots.length; i++) {
+		for (let i=0; i<dots.length; i++) {
 			dots[i].run();
 		}
 	}
@@ -66,4 +66,4 @@ var sketch_6 = function(p) {
 
 }
 
-var p5_6 = new p5(sketch_6, "canvas6");
+let p5_6 = new p5(sketch_6, "canvas6");

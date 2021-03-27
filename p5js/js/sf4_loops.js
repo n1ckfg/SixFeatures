@@ -1,11 +1,11 @@
 "use strict";
 
-var sketch_4 = function(p) {
+let sketch_4 = function(p) {
 
-	var x = 100;
-	var y = 100;
-	var s = 50;
-	var speed = 5;
+	let x = 100;
+	let y = 100;
+	let s = 50;
+	let speed = 5;
 
 	p.setup = function() {
 		p.createCanvas(640, 360);
@@ -14,7 +14,7 @@ var sketch_4 = function(p) {
 	p.draw = function() {
 		p.background(127);
 
-	    for (var i=0; i<4; i++) {
+	    for (let i=0; i<4; i++) {
 	    	p.ellipse(x, y + (i * s), s, s);
 	    }
 
@@ -27,4 +27,4 @@ var sketch_4 = function(p) {
 
 }
 
-var p5_4 = new p5(sketch_4, "canvas4");
+let p5_4 = new p5(sketch_4, "canvas4");

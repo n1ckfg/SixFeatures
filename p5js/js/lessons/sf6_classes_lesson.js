@@ -1,12 +1,12 @@
 // 6. Class: a reusable object that can contain any of these six features.
 
-var numDots = 10;
-var dots = [];
+let numDots = 10;
+let dots = [];
 
 function setup() {
     createCanvas(640, 360);
 
-    for (var i=0; i<numDots; i++) {
+    for (let i=0; i<numDots; i++) {
         dots[i] = new Dot(100, 100);
     }
 }
@@ -14,7 +14,7 @@ function setup() {
 function draw() {
     background(127);
 
-    for (var i=0; i<dots.length; i++) {
+    for (let i=0; i<dots.length; i++) {
         dots[i].run();
     }
 }

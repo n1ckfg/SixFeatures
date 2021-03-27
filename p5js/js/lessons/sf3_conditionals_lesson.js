@@ -1,9 +1,9 @@
 // 3. Conditional: a rule that ignores some instructions unless its conditions are met.
 
-var x = 100;
-var y = 100;
-var s = 50;
-var speed = 5;
+let x = 100;
+let y = 100;
+let s = 50;
+let speed = 5;
 
 function setup() {
     createCanvas(640, 200);

@@ -1,8 +1,8 @@
 // 2. Function: a list of instructions.
 
-var x = 0;
-var y = 100;
-var s = 50;
+let x = 0;
+let y = 100;
+let s = 50;
 
 function setup() {
     createCanvas(200, 200);
