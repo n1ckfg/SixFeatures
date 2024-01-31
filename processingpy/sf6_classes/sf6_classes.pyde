@@ -3,7 +3,7 @@ dots = []
 
 def setup():
     global numDots, dots
-    size(640, 360, P2D)
+    size(640, 360)
     
     for i in range(0, numDots):
         d = Dot(100, 100)

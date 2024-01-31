@@ -4,7 +4,7 @@ s = 50
 speed = 5
 
 def setup():
-    size(640, 360, P2D)
+    size(640, 360)
 
 def draw():
     global x, y, s, speed
