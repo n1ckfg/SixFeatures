@@ -25,7 +25,7 @@ public class Dot : MonoBehaviour {
 
         speed = Random.Range(speed/2f, speed*2f);
         target = new Vector3(Screen.width*2f, Random.Range(0f, Screen.height), 0f);
-        Debug.Log(target);
+        //Debug.Log(target);
     }
 
     private void Update() {

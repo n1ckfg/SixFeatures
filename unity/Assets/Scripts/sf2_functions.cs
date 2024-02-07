@@ -23,7 +23,7 @@ public class sf2_functions : MonoBehaviour {
     private void moveSphere() {
         sphere.Translate(speedX, 0f, 0f);
         mtl.SetColor("_Color", color);
-        if (Input.GetKeyDown(KeyCode.Space)) sphere.position = origPos;
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) sphere.position = origPos;
     }
 
 }
