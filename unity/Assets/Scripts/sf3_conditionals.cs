@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class sf3_conditionals : MonoBehaviour {
 
-    public GameObject sphere;
+    public Transform sphere;
     public float speedX = 0.01f;
     public Color color;
 
-    private Renderer ren;
+    private Material mtl;
 
     private void Awake() {
-        ren = sphere.GetComponent<Renderer>();
+         mtl = sphere.GetComponent<Renderer>().sharedMaterial;
     }
 
     private void Update() {
         moveSphere();
-        ren.material.SetColor("_Color", color);
     }
 
     private void moveSphere() {
-        sphere.transform.Translate(speedX, 0f, 0f);
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(sphere.transform.position);
+        sphere.Translate(speedX, 0f, 0f);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(sphere.position);
         if (screenPos.x < 0f || screenPos.x > Screen.width) {
             speedX *= -1f;
         }
+        mtl.SetColor("_Color", color);
     }
 
 }

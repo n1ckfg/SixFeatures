@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class sf6_classes : MonoBehaviour {
 
-    public GameObject sphere;
+    public Dot sphere;
     public int numSpheres = 4;
 
     private List<Dot> spheres;
@@ -12,7 +12,7 @@ public class sf6_classes : MonoBehaviour {
     private void Start() {
         spheres = new List<Dot>();
         for (int i = 0; i < numSpheres; i++) {
-            spheres.Add(Instantiate(sphere, new Vector3(0f, i * 1f, 0f), Quaternion.identity).GetComponent<Dot>());
+            spheres.Add(Instantiate(sphere, new Vector3(0f, i * 1f, 0f), Quaternion.identity));
         }
     }
 

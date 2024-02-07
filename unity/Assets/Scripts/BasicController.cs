@@ -89,8 +89,8 @@ public class BasicController : MonoBehaviour {
 	[HideInInspector] public bool isDrawing = false;
 
 	private bool fixedZ = false;
-	private float minimumX = -360f;
-	private float maximumX = 360f;
+	//private float minimumX = -360f;
+	//private float maximumX = 360f;
 	private float minimumY = -60f;
 	private float maximumY = 60f;
 	private float zPos = 1f;

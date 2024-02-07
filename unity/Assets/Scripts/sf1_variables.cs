@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class sf1_variables : MonoBehaviour {
 
-    public GameObject sphere;
+    public Transform sphere;
     public Vector3 pos = Vector3.zero;
     public Vector3 scale = Vector3.one;
     public Color color;
 
-    private Renderer ren;
+    private Material mtl;
 
     private void Awake() {
-        ren = sphere.GetComponent<Renderer>();
+        mtl = sphere.GetComponent<Renderer>().sharedMaterial;
     }
 
     private void Update() {
-        sphere.transform.position = pos;
-        sphere.transform.localScale = scale;
-        ren.material.SetColor("_Color", color);
+        sphere.position = pos;
+        sphere.localScale = scale;
+        mtl.SetColor("_Color", color);
 	}
 
 }

@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class sf2_functions : MonoBehaviour {
 
-    public GameObject sphere;
+    public Transform sphere;
     public float speedX = 0.01f;
     public Color color;
 
-    private Renderer ren;
+    private Material mtl;
+    private Vector3 origPos;
 
     private void Awake() {
-        ren = sphere.GetComponent<Renderer>();
+        mtl = sphere.GetComponent<Renderer>().sharedMaterial;
+        origPos = sphere.position;
     }
 
     private void Update() {
         moveSphere();
-        ren.material.SetColor("_Color", color);
     }
 
     private void moveSphere() {
-        sphere.transform.Translate(speedX, 0f, 0f);
+        sphere.Translate(speedX, 0f, 0f);
+        mtl.SetColor("_Color", color);
+        if (Input.GetKeyDown(KeyCode.Space)) sphere.position = origPos;
     }
 
 }
