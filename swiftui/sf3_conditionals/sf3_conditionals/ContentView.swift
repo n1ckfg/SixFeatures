@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var x = 0.0
-    var speed = 1.0
+    @State var speed = 5.0
     let y = 100.0
     let s = 50.0
     let fps = 1.0 / 60.0
@@ -18,8 +18,12 @@ struct ContentView: View {
                 .position(x: x, y: y)
                 .onAppear {
                     Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
-                        withAnimation {
+                        withAnimation(Animation.linear(duration: 0.0)) {
                             x += speed
+                            
+                            if x > 640 || x < 0 {
+                                speed *= -1.0
+                            }
                         }
                     }
                 }
@@ -29,5 +33,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .frame(width: 200, height: 200)
+        .frame(width: 640, height: 200)
 }

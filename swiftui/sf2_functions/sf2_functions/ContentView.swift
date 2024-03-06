@@ -20,7 +20,7 @@ struct ContentView: View {
                 .position(x: x, y: y)
                 .onAppear {
                     Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
-                        withAnimation {
+                        withAnimation(Animation.linear(duration: 0.0)) {
                             x += 1
                         }
                     }
