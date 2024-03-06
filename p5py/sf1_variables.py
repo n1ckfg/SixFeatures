@@ -5,7 +5,7 @@ y = 100
 s = 50
 
 def setup():
-	size(400, 200)
+	size(200, 200)
 
 def draw():
 	global x, y, s
