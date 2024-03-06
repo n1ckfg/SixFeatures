@@ -6,7 +6,6 @@ struct ContentView: View {
     let y = 100.0
     let s = 50.0
     let fps = 1.0 / 60.0
-    @State var width = 0.0
     
     var body: some View {
         ZStack {
