@@ -12,7 +12,7 @@ struct ContentView: View {
         ZStack {
             Color.gray
             
-            ForEach(0...x.count-1, id: \.self) { i in
+            ForEach(0..<x.count, id: \.self) { i in
                 Circle()
                     .strokeBorder(.black, lineWidth: 2)
                     .background(Circle().fill(.white))
