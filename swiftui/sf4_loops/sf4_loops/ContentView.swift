@@ -11,12 +11,12 @@ struct ContentView: View {
         ZStack {
             Color.gray
             
-            ForEach(0...3, id: \.self) { index in
+            ForEach(0...3, id: \.self) { i in
                 Circle()
                     .strokeBorder(.black, lineWidth: 2)
                     .background(Circle().fill(.white))
                     .frame(width: s, height: s)
-                    .position(x: x, y: y + (Double(s) * Double(index)))
+                    .position(x: x, y: y + (CGFloat(s) * CGFloat(i)))
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
                             withAnimation(Animation.linear(duration: 0.0)) {
