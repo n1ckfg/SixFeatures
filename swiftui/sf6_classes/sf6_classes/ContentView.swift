@@ -6,24 +6,46 @@ class Dot: ObservableObject, Identifiable {
     @Published var s: CGFloat
     @Published var speed: CGFloat
     @Published var target: CGPoint
-    @Published var fillOrig:Color
-    @Published var fillHit:Color
+    @Published var fillOrig: Color
+    @Published var fillHit: Color
+    @Published var fillNow: Color
 
     init() {
         pos = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
         s = 50.0
         speed = CGFloat.random(in: 1..<5)
-        target = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
+        target = CGPoint(x: 640.0, y: CGFloat.random(in: 0..<360.0))
         fillOrig = Color(red: 0.0, green: 0.392, blue: 1.0)
         fillHit = Color(red: 0.0, green: 0.784, blue: 1.0)
+        fillNow = Color(red: 0.0, green: 0.0, blue: 0.0)
+    }
+    
+    func lerp(start: CGFloat, end: CGFloat, fraction: CGFloat) -> CGFloat {
+        return start + fraction * (end - start)
     }
     
     func run() {
-        pos.x += speed
-        
-        if pos.x > 640 || pos.x < 0 {
-            speed *= -1.0
+        pos.x = lerp(start: pos.x, end: target.x, fraction: 0.005 * speed)
+        pos.y = lerp(start: pos.y, end: target.y, fraction: 0.005 * speed)
+
+        if ((target.x > 0 && pos.x > 640.0 - (s/2)) || (target.x < 0 && pos.x < -(s/2))) {
+            target.x *= -1.0
+          target.y = CGFloat.random(in: 0..<360.0)
         }
+        
+        if target.x < 0 {
+          fillNow = fillHit;
+        } else {
+          fillNow = fillOrig;
+        }
+    }
+    
+    func lerp() {
+        
+    }
+    
+    func distance() {
+        
     }
 }
 
@@ -40,28 +62,28 @@ class DotManager: ObservableObject {
 
 struct ContentView: View {
     let fps = 1.0 / 60.0
-    @StateObject var dotManager = DotManager()
+    //@StateObject var dotManager = DotManager()
  
-    @StateObject var dotz = Dot()
+    @StateObject var dot = Dot()
     
     var body: some View {
         ZStack {
             Color.gray
                         
-            ForEach(dotManager.dots) { dot in
-                Circle()
-                    .strokeBorder(.black, lineWidth: 2)
-                    .background(Circle().fill(dot.fillOrig))
-                    .frame(width: dot.s, height: dot.s)
-                    .position(x: dotz.pos.x, y: dotz.pos.y)
-                    .onAppear {
-                        Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
-                            withAnimation(Animation.linear(duration: 0.0)) {
-                                dotz.run()
-                            }
+            //ForEach(dotManager.dots) { dot in
+            Circle()
+                .strokeBorder(.black, lineWidth: 2)
+                .background(Circle().fill(dot.fillNow))
+                .frame(width: dot.s, height: dot.s)
+                .position(x: dot.pos.x, y: dot.pos.y)
+                .onAppear {
+                    Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
+                        withAnimation(Animation.linear(duration: 0.0)) {
+                            dot.run()
                         }
                     }
-            }
+                }
+            //}
         }
     }
 }
