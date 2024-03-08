@@ -1,45 +1,57 @@
 import SwiftUI
 
-struct ContentView: View {
-    struct Dot {
-        @State var pos: CGPoint
-        @State var s: CGFloat
-        @State var speed: CGFloat
-        @State var target: CGPoint
-        @State var fillOrig:Color
-        @State var fillHit:Color
-    }
+public class Dot: ObservableObject, Identifiable {
+    public let id = UUID()
+    @Published var pos: CGPoint
+    @Published var s: CGFloat
+    @Published var speed: CGFloat
+    @Published var target: CGPoint
+    @Published var fillOrig:Color
+    @Published var fillHit:Color
 
-    @State var dots: [Dot] = [
-        Dot(pos: CGPoint(x: 50.0, y: 50.0), s: 50.0, speed: 5.0, target: CGPoint(x: 0.0, y: 0.0), fillOrig: Color(red: 0.0, green: 0.392, blue: 1.0), fillHit: Color(red: 0.0, green: 0.784, blue: 1.0)),
-        Dot(pos: CGPoint(x: 50.0, y: 50.0), s: 50.0, speed: 5.0, target: CGPoint(x: 0.0, y: 0.0), fillOrig: Color(red: 0.0, green: 0.392, blue: 1.0), fillHit: Color(red: 0.0, green: 0.784, blue: 1.0))
-    ]
+    init() {
+        self.pos = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
+        self.s = 50.0
+        self.speed = CGFloat.random(in: 1..<5)
+        self.target = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
+        self.fillOrig = Color(red: 0.0, green: 0.392, blue: 1.0)
+        self.fillHit = Color(red: 0.0, green: 0.784, blue: 1.0)
+    }
     
-    @State var x = [ 100.0, 100.0, 100.0, 100.0, 100.0 ]
-    @State var speed = [ 1.0, 2.0, 3.0, 4.0, 5.0 ]
-    let y = 100.0
-    let s = 50.0
+    public func run() {
+        self.pos.x += 1.0
+    }
+}
+
+class DotManager: ObservableObject {
+    @Published var dots: [Dot] = []
+    
+    init() {
+        for _ in 0..<10 {
+            let dot = Dot()
+            self.dots.append(dot)
+        }
+    }
+}
+
+struct ContentView: View {
     let fps = 1.0 / 60.0
-    @State var width = 0.0
-   
+    @StateObject private var dotManager = DotManager()
+
     var body: some View {
         ZStack {
             Color.gray
-            
-            ForEach(0..<dots.count, id: \.self) { i in
+                        
+            ForEach(dotManager.dots) { dot in
                 Circle()
                     .strokeBorder(.black, lineWidth: 2)
-                    .background(Circle().fill(.white))
-                    .frame(width: s, height: s)
-                    .position(x: dots[i].pos.x, y: dots[i].pos.y + (CGFloat(s) * CGFloat(i)))
+                    .background(Circle().fill(dot.fillOrig))
+                    .frame(width: dot.s, height: dot.s)
+                    .position(x: dot.pos.x, y: dot.pos.y)
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
                             withAnimation(Animation.linear(duration: 0.0)) {
-                                dots[i].pos.x += dots[i].speed
-                                
-                                if dots[i].pos.x > 640 || dots[i].pos.x < 0 {
-                                    dots[i].speed *= -1.0
-                                }
+                                dot.run()
                             }
                         }
                     }
