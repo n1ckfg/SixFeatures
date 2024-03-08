@@ -1,7 +1,7 @@
 import SwiftUI
 
-public class Dot: ObservableObject, Identifiable {
-    public let id = UUID()
+class Dot: ObservableObject, Identifiable {
+    let id = UUID()
     @Published var pos: CGPoint
     @Published var s: CGFloat
     @Published var speed: CGFloat
@@ -10,16 +10,20 @@ public class Dot: ObservableObject, Identifiable {
     @Published var fillHit:Color
 
     init() {
-        self.pos = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
-        self.s = 50.0
-        self.speed = CGFloat.random(in: 1..<5)
-        self.target = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
-        self.fillOrig = Color(red: 0.0, green: 0.392, blue: 1.0)
-        self.fillHit = Color(red: 0.0, green: 0.784, blue: 1.0)
+        pos = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
+        s = 50.0
+        speed = CGFloat.random(in: 1..<5)
+        target = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
+        fillOrig = Color(red: 0.0, green: 0.392, blue: 1.0)
+        fillHit = Color(red: 0.0, green: 0.784, blue: 1.0)
     }
     
-    public func run() {
-        self.pos.x += 1.0
+    func run() {
+        pos.x += speed
+        
+        if pos.x > 640 || pos.x < 0 {
+            speed *= -1.0
+        }
     }
 }
 
@@ -36,8 +40,10 @@ class DotManager: ObservableObject {
 
 struct ContentView: View {
     let fps = 1.0 / 60.0
-    @StateObject private var dotManager = DotManager()
-
+    @StateObject var dotManager = DotManager()
+ 
+    @StateObject var dotz = Dot()
+    
     var body: some View {
         ZStack {
             Color.gray
@@ -47,11 +53,11 @@ struct ContentView: View {
                     .strokeBorder(.black, lineWidth: 2)
                     .background(Circle().fill(dot.fillOrig))
                     .frame(width: dot.s, height: dot.s)
-                    .position(x: dot.pos.x, y: dot.pos.y)
+                    .position(x: dotz.pos.x, y: dotz.pos.y)
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
                             withAnimation(Animation.linear(duration: 0.0)) {
-                                dot.run()
+                                dotz.run()
                             }
                         }
                     }
