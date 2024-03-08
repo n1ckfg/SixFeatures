@@ -39,14 +39,6 @@ class Dot: ObservableObject, Identifiable {
           fillNow = fillOrig;
         }
     }
-    
-    func lerp() {
-        
-    }
-    
-    func distance() {
-        
-    }
 }
 
 class DotManager: ObservableObject {
@@ -54,8 +46,8 @@ class DotManager: ObservableObject {
     
     init() {
         for _ in 0..<10 {
-            let dot = Dot()
-            self.dots.append(dot)
+            @StateObject var dot = Dot()
+            dots.append(dot)
         }
     }
 }
