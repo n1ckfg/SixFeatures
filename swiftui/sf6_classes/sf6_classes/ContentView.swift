@@ -45,7 +45,7 @@ struct DotManager {
     
     init() {
         for _ in 0..<10 {
-            @State var dot = Dot()
+            let dot = Dot()
             dots.append(dot)
         }
     }
