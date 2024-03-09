@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct Dot: Identifiable {
-    let id = UUID()
+struct Dot {
     var pos: CGPoint
     var s: CGFloat
     var speed: CGFloat
@@ -54,25 +53,22 @@ struct DotManager {
 
 struct ContentView: View {
     let fps = 1.0 / 60.0
-    //@State var dotManager = DotManager()
-    @State var dots: [Dot] = [Dot(), Dot()]
-
-    //@State var dot = Dot()
+    @State var dm: DotManager = DotManager()
     
     var body: some View {
         ZStack {
             Color.gray
                         
-            ForEach(dots.indices, id: \.self) { i in
+            ForEach(dm.dots.indices, id: \.self) { i in
             Circle()
                 .strokeBorder(.black, lineWidth: 2)
-                .background(Circle().fill(dots[i].fillNow))
-                .frame(width: dots[i].s, height: dots[i].s)
-                .position(x: dots[i].pos.x, y: dots[i].pos.y)
+                .background(Circle().fill(dm.dots[i].fillNow))
+                .frame(width: dm.dots[i].s, height: dm.dots[i].s)
+                .position(x: dm.dots[i].pos.x, y: dm.dots[i].pos.y)
                 .onAppear {
                     Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
                         withAnimation(Animation.linear(duration: 0.0)) {
-                            dots[i].run()
+                            dm.dots[i].run()
                         }
                     }
                 }
