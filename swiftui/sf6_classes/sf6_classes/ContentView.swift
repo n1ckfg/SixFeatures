@@ -1,14 +1,14 @@
 import SwiftUI
 
-class Dot: ObservableObject, Identifiable {
+struct Dot: Identifiable {
     let id = UUID()
-    @Published var pos: CGPoint
-    @Published var s: CGFloat
-    @Published var speed: CGFloat
-    @Published var target: CGPoint
-    @Published var fillOrig: Color
-    @Published var fillHit: Color
-    @Published var fillNow: Color
+    var pos: CGPoint
+    var s: CGFloat
+    var speed: CGFloat
+    var target: CGPoint
+    var fillOrig: Color
+    var fillHit: Color
+    var fillNow: Color
 
     init() {
         pos = CGPoint(x: CGFloat.random(in: 0..<640), y: CGFloat.random(in: 0..<360.0))
@@ -24,7 +24,7 @@ class Dot: ObservableObject, Identifiable {
         return start + fraction * (end - start)
     }
     
-    func run() {
+    mutating func run() {
         pos.x = lerp(start: pos.x, end: target.x, fraction: 0.005 * speed)
         pos.y = lerp(start: pos.y, end: target.y, fraction: 0.005 * speed)
 
@@ -41,12 +41,12 @@ class Dot: ObservableObject, Identifiable {
     }
 }
 
-class DotManager: ObservableObject {
-    @Published var dots: [Dot] = []
+struct DotManager {
+    var dots: [Dot] = []
     
     init() {
         for _ in 0..<10 {
-            @StateObject var dot = Dot()
+            @State var dot = Dot()
             dots.append(dot)
         }
     }
@@ -54,28 +54,29 @@ class DotManager: ObservableObject {
 
 struct ContentView: View {
     let fps = 1.0 / 60.0
-    //@StateObject var dotManager = DotManager()
- 
-    @StateObject var dot = Dot()
+    //@State var dotManager = DotManager()
+    @State var dots: [Dot] = [Dot(), Dot()]
+
+    //@State var dot = Dot()
     
     var body: some View {
         ZStack {
             Color.gray
                         
-            //ForEach(dotManager.dots) { dot in
+            ForEach(dots.indices, id: \.self) { i in
             Circle()
                 .strokeBorder(.black, lineWidth: 2)
-                .background(Circle().fill(dot.fillNow))
-                .frame(width: dot.s, height: dot.s)
-                .position(x: dot.pos.x, y: dot.pos.y)
+                .background(Circle().fill(dots[i].fillNow))
+                .frame(width: dots[i].s, height: dots[i].s)
+                .position(x: dots[i].pos.x, y: dots[i].pos.y)
                 .onAppear {
                     Timer.scheduledTimer(withTimeInterval: fps, repeats: true) { timer in
                         withAnimation(Animation.linear(duration: 0.0)) {
-                            dot.run()
+                            dots[i].run()
                         }
                     }
                 }
-            //}
+            }
         }
     }
 }
